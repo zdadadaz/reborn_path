@@ -19,29 +19,59 @@ def intersect(head1, head2):
     cur1 = head1
     cur2 = head2
     # check intersection
-    while count < max(len1,len2):
+    while cur1 != None and cur2 != None:
         if count == 0:
             # shift 1
             if dif < 0:
                 for i in xrange(0,abs(dif)):
-                    cur1 = cur1.next
-                cur2 = cur2.next
+                    cur2 = cur2.next
             else:
                 for i in xrange(0,abs(dif)):
-                    cur2 = cur2.next
-                cur1 = cur1.next
-            #check whether it is intersection
-            if cur1.val == cur2.val:
-                return cur1
-        else:
-            cur1 = cur1.next
-            cur2 = cur2.next
-        
-        if cur1.val == cur2.val:
+                    cur1 = cur1.next
+        #check whether it is intersection
+        if cur1 == cur2:
             return cur1
+        cur1 = cur1.next
+        cur2 = cur2.next
         count += 1
-    return -1
-        
+    return None
+
+def intersect_sample(head1, head2):
+  list1node = None
+  list1length = get_length(head1)
+  list2node = None
+  list2length = get_length(head2)
+
+  length_difference = 0
+  if list1length >= list2length :
+    length_difference = list1length - list2length
+    list1node = head1
+    list2node = head2
+  else:
+    length_difference = list2length - list1length
+    list1node = head2
+    list2node = head1
+
+  while length_difference > 0:
+    list1node = list1node.next
+    length_difference-=1
+
+  while list1node != None:
+    if list1node == list2node:
+      return list1node
+
+    list1node = list1node.next
+    list2node = list2node.next
+  return None
+
+def get_length(head):
+  list_length = 0
+  while head != None:
+    head = head.next
+    list_length+=1
+  return list_length
+
+
 
 def main():
     llact = cm.ll_action()
