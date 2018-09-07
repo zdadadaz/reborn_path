@@ -5,10 +5,10 @@ class single_node:
         self.next = None
 class ll_action:
     def create_random_ll(self,value):
-        rdnum = rd.randint
+        rdnum = rd.randint(0,99)
         head = single_node(rdnum)
         for i in xrange(1,value):
-            rdnum = rd.randint
+            rdnum = rd.randint(0,99)
             a = single_node(rdnum)
             if i == 1:
                 head.next = a
@@ -34,3 +34,10 @@ class ll_action:
         while ll != None:
             print(ll.val)
             ll = ll.next
+    def insert_at_tail(self, listinput, node):
+        cur = listinput
+        while cur.next != None:
+            cur = cur.next
+        cur.next = node
+        
+
