@@ -7,7 +7,7 @@ class ll_action:
     def create_random_ll(self,value):
         rdnum = rd.randint(0,99)
         head = single_node(rdnum)
-        for i in xrange(1,value):
+        for i in range(1,value):
             rdnum = rd.randint(0,99)
             a = single_node(rdnum)
             if i == 1:
@@ -21,7 +21,7 @@ class ll_action:
         rdnum = li[0]
         value = len(li)
         head = single_node(rdnum)
-        for i in xrange(1,value):
+        for i in range(1,value):
             rdnum = li[i]
             a = single_node(rdnum)
             if i == 1:

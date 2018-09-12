@@ -27,7 +27,7 @@ def insertion_sort(head):
     sortedarr = None
     cur = head
     while cur != None:
-        cur_next = cur.next
+        cur_next = cur.next ## cur.next will be changed so it need to be stored before hand
         sortedarr = sorted_insert(sortedarr,cur)
         cur = cur_next
     return sortedarr
