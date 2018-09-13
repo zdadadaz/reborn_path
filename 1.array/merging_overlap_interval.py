@@ -3,7 +3,7 @@ from collections import namedtuple
 def find_busy_intervals(v1):
     out =[]
     out.append(v1[0])
-    for i in xrange(1,len(v1)):
+    for i in range(1,len(v1)):
         tmp = v1[i]
         pt = len(out)-1  ## point to end
         if(out[pt][0]<tmp[0] and  tmp[0] < out[pt][1]):
